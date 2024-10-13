@@ -20,6 +20,7 @@
             <input type="email", name="email"> <br>
             <p>password</p>
             <input type="password", name="password"> <br>
+            <a href="{{route("user.login")}}">Have an account? Log in</a> <br>
             <button type="submit">sign up</button>
         </form>
 </body>

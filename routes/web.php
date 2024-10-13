@@ -31,4 +31,12 @@ Route::redirect('/', "/login");
 // dashboard for all authenticated users
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+    
+    Route::get('/reports', [PageController::class, 'dashboard'])->name('dashboard')->middleware();
+
+
 });
+
+    
+
+Route::get('/config', [PageController::class, 'dashboard'])->name('dashboard');

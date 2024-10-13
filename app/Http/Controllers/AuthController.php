@@ -22,12 +22,12 @@ class AuthController extends Controller
 
     public function signUp(UserStoreRequest $request)
     {
-        $request = $request->validated();
+        $data = $request->validated();
 
         $user = User::create([
-            'name' => $request["name"],
-            'email' => $request["email"],
-            'password' => Hash::make($request["password"]),
+            'name' => $data["name"],
+            'email' => $data["email"],
+            'password' => Hash::make($data["password"]),
         ]);
  
         return $this->signIn($request);

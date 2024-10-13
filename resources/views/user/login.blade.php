@@ -18,6 +18,7 @@
             <input type="email", name="email"> <br>
             <p>password</p>
             <input type="password", name="password"> <br>
+            <a href="{{route("user.registration")}}">Dont have an account?</a> <br>
             <button type="submit">sign in</button>
         </form>
 </body>
