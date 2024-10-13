@@ -22,6 +22,5 @@
             <input type="password", name="password"> <br>
             <button type="submit">sign up</button>
         </form>
-    </div>
 </body>
 </html>

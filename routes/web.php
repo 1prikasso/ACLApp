@@ -30,7 +30,5 @@ Route::redirect('/', "/login");
 
 // dashboard for all authenticated users
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return dd(Auth::user());
-    })->name('dashboard');
+    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 });

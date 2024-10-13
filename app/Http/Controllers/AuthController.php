@@ -30,9 +30,7 @@ class AuthController extends Controller
             'password' => Hash::make($request["password"]),
         ]);
  
-        Auth::attempt($user);
-        
-        return redirect()->route('dashboard');
+        return $this->signIn($request);
     }   
 
     public function signIn(Request $request)
@@ -44,7 +42,7 @@ class AuthController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
  
