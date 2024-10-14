@@ -40,6 +40,8 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->route('dashboard');
         }
+
+        return redirect()->back();
     }
 
     public function logout(Request $request)
