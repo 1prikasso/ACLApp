@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,9 @@ Route::redirect('/', "/login");
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
     
-    Route::get('/reports', [PageController::class, 'reports'])->name('reports');
-
-    Route::get('/config', [PageController::class, 'config'])->name('config');
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports');
+    
+    Route::get('/config', [PageController::class, 'config_page'])->name('config');
 });
 
     

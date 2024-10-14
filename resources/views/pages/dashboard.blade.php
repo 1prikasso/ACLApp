@@ -1,5 +1,10 @@
 @extends('pages.template')
 
+{{-- 
+TODO: 
+    ADD ROUTE TO CONFIG PAGE
+--}}
+
 @section('title')
     dashboard
 @endsection
@@ -12,7 +17,8 @@
             <a href="{{route('reports')}}"><button>reports</button></a>
         @endif
         @if (str_contains($user_role, 'owner') OR str_contains($user_role, 'admin'))
-            <a href="{{route('config')}}"><button>config</button></a>
+        
+            <a href=><button>config</button></a>
 
         @endif
     @endif

@@ -12,16 +12,11 @@ class ReportController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(?User $user)
+    public function index()
     {
-        // $data = Report::get();
-
-        // if($user != null){
-        //     return Report::where();
-        // }
+        $reports = Report::get();
         
-        
-    
+        return dd($reports);
     }
 
     /**

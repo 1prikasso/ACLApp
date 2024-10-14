@@ -17,7 +17,9 @@ class ReportFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'report' => fake()->name(),
+            'description' => fake()->sentence(8),
+            'user_id' => 1
         ];
     }
 }
