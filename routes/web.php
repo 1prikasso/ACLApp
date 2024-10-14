@@ -32,8 +32,9 @@ Route::redirect('/', "/login");
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
     
-    Route::get('/reports', [PageController::class, 'dashboard'])->name('reports');
+    Route::get('/reports', [PageController::class, 'reports'])->name('reports');
 
+    Route::get('/config', [PageController::class, 'config'])->name('config');
 });
 
     

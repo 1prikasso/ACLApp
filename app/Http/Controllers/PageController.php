@@ -11,4 +11,12 @@ class PageController extends Controller
         $role = Auth::user()->role;
         return view("pages.dashboard", ['user_role' => $role]);       
     }
+
+    public function reports_page() {
+              
+    }
+
+    public function config_page() {
+             
+    }
 }

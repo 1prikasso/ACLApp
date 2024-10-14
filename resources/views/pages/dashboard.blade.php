@@ -9,10 +9,11 @@
         <h1>wait until the owner gives you permission </h1>
     @else
         @if (str_contains($user_role, 'owner') OR str_contains($user_role, 'employee'))
-            <button>reports</button>
+            <a href="{{route('reports')}}"><button>reports</button></a>
         @endif
         @if (str_contains($user_role, 'owner') OR str_contains($user_role, 'admin'))
-            <button>config</button>
+            <a href="{{route('config')}}"><button>config</button></a>
+
         @endif
     @endif
 @endsection
