@@ -14,6 +14,6 @@ class PageController extends Controller
     }
 
     public function config_page() {
-        
+        return view('pages.config');
     }
 }

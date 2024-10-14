@@ -18,7 +18,7 @@ TODO:
         @endif
         @if (str_contains($user_role, 'owner') OR str_contains($user_role, 'admin'))
         
-            <a href=><button>config</button></a>
+            <a href={{route('config')}}><button>config</button></a>
 
         @endif
     @endif

@@ -4,17 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReportController;
+use App\Http\Middleware\EnsureUserRole;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
+Route::redirect('/', "/login");
 
 
 // registration page
@@ -25,19 +18,17 @@ Route::post('/signUp', [AuthController::class, 'signUp'])->name('user.signUp');
 Route::get('/login', [AuthController::class, 'login'])->name('user.login');
 Route::post('/signIn', [AuthController::class, 'signIn'])->name('user.signIn');
 
+// logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('user.logout');
-
-Route::redirect('/', "/login");
 
 // dashboard for all authenticated users
 Route::middleware(['auth'])->group(function () {
+    // dashboard
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
     
-    Route::get('/reports', [ReportController::class, 'index'])->name('reports');
-    
-    Route::get('/config', [PageController::class, 'config_page'])->name('config');
+    // reports page
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports')->middleware(EnsureUserRole::class.':owner/employee');
+
+    // config page
+    Route::get('/config', [PageController::class, 'config_page'])->name('config')->middleware(EnsureUserRole::class.':owner/admin');
 });
-
-    
-
-Route::get('/config', [PageController::class, 'dashboard'])->name('dashboard');

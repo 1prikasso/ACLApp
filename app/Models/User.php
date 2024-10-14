@@ -13,7 +13,13 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     public function hasRole(string $role) : bool {
-        return str_contains($this->role, $role);
+        $roles = explode('/', $role);
+
+        foreach ($roles as $role) {
+            if (str_contains($this->role, $role))
+                return true;
+        }
+        return false;
     }
 
     /**
