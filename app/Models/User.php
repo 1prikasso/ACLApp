@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function hasRole(string $role) : bool {
+        return str_contains($this->role, $role);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -5,14 +5,13 @@
 @endsection
 
 @section('content')
-    
     @if ($user_role == null)
         <h1>wait until the owner gives you permission </h1>
     @else
-        @if ($user_role == 'owner' OR $user_role == 'employee')
+        @if (str_contains($user_role, 'owner') OR str_contains($user_role, 'employee'))
             <button>reports</button>
         @endif
-        @if ($user_role == 'owner' OR $user_role == 'admin')
+        @if (str_contains($user_role, 'owner') OR str_contains($user_role, 'admin'))
             <button>config</button>
         @endif
     @endif
